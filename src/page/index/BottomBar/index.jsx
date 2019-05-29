@@ -2,15 +2,23 @@ import React from 'react';
 import './index.scss';
 import { connect } from 'react-redux';
 
-export default class Index extends React.Component {
+class Index extends React.Component {
+
+  handleClick = key => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'changeBottomBar',
+      payload: key,
+    })
+  };
 
   renderItems = () => {
-    const tabs = ['首页', '订单', '我的'];
-    return tabs.map((e, index) => {
+    const { tabs, activeKey } = this.props;
+    return tabs.map(item => {
       return (
-        <div key={index} className="btn-item">
+        <div key={item.key} className={item.key + " btn-item " + `${item.key === activeKey ? 'active' : ''}`} onClick={() => this.handleClick(item.key)}>
           <div className='tab-icon' />
-          <div className='btn-name'>{e}</div>
+          <div className='btn-name'>{item.name}</div>
         </div>
       )
     })
@@ -23,3 +31,10 @@ export default class Index extends React.Component {
   }
 
 }
+
+export default connect(
+  state => ({
+    tabs: state.tabReducer.tabs,
+    activeKey: state.tabReducer.activeKey
+  })
+)(Index)

@@ -1,20 +1,25 @@
-import { ADD_TODO } from '../actions/actionTypes';
-// import { addTodo } from "../actions/tabAction";
+import CONFIG from '../config.js';
 
+const { TABKEY } = CONFIG;
 const initState = {
-  num: 0,
+  tabs: [
+    {name: '首页', key: TABKEY.home},
+    {name: '订单', key: TABKEY.order},
+    {name: '我的', key: TABKEY.my},
+  ],
+  activeKey: TABKEY.home,
 };
-const addTodo = (state, action) => {
-  const objNum = action.obj.num;
-  const num = state.num;
+
+function changeBottomBar(state, { payload }) {
   return {
-    num: num + objNum
+    ...state,
+    activeKey: payload,
   }
-};
+}
 
 export default (state = initState, action) => {
   switch (action.type) {
-    case ADD_TODO: return addTodo(state, action);
+    case 'changeBottomBar': return changeBottomBar(state, action);
     default: return state;
   }
 };
