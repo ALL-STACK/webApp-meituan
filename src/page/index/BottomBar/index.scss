@@ -6,6 +6,7 @@
   height: pxTurnToRem(50px);
   display: flex;
   justify-content: space-around;
+  font-family: "Microsoft YaHei";
   background-color: rgba(246, 246, 246, .95);
   .btn-item {
     font-size: pxTurnToRem(14px);
@@ -23,20 +24,35 @@
     &.home .tab-icon {
       background-image: url("./img/homeIcon.png");
     }
-    &.home.active .tab-icon {
-      background-image: url("./img/homeIconActive.png");
+    &.home.active {
+      & .tab-icon {
+        background-image: url("./img/homeIconActive.png");
+      }
+      & .btn-name {
+        color: #333;
+      }
     }
     &.my .tab-icon{
       background-image: url("./img/myIcon.png");
     }
-    &.my.active .tab-icon {
-      background-image: url("./img/myIconActive.png");
+    &.my.active {
+      & .tab-icon {
+        background-image: url("./img/myIconActive.png");
+      }
+      & .btn-name {
+        color: #333;
+      }
     }
     &.order .tab-icon {
       background-image: url("./img/orderIcon.png");
     }
-    &.order.active .tab-icon {
-      background-image: url("./img/orderIconActive.png");
+    &.order.active {
+      & .tab-icon {
+        background-image: url("./img/orderIconActive.png");
+      }
+      & .btn-name {
+        color: #333;
+      }
     }
   }
 }

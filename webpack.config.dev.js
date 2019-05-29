@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const srcRoot = path.resolve(__dirname, 'src');
 const devPath = path.resolve(__dirname, 'dev');
@@ -47,6 +48,7 @@ module.exports = {
   },
   devServer: {
     contentBase: devPath,
+    hot: true,
   },
   entry: entryMap,
   output: {
@@ -69,5 +71,7 @@ module.exports = {
   },
   plugins: [
     // new HtmlWebpackPlugin()
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
   ].concat(htmlArray)
 };

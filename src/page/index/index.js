@@ -3,11 +3,11 @@ import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import '../../static/reset.css';
 import '../../static/rem';
-import Main from './Main/Main';
+import Container from './Main/Container';
 import store from './store'
 
 ReactDom.render(
-  <Provider store={store}><Main /></Provider>,
+  <Provider store={store}><Container /></Provider>,
   document.getElementById('root')
 );
 
