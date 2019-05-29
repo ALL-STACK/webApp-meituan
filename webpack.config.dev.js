@@ -41,6 +41,10 @@ const htmlArray = getHtmlArray(entryMap);
 
 module.exports = {
   mode: 'development',
+  resolve: {
+    // 省略后缀
+    extensions: ['.js', '.jsx', '.tsx']
+  },
   devServer: {
     contentBase: devPath,
   },
@@ -53,9 +57,14 @@ module.exports = {
   module: {
     rules: [
       { test: /\.css$/, use: ['style-loader', 'css-loader'], include: srcRoot },
-      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'], include: srcRoot },
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader', {
+          loader: "sass-resources-loader",
+          options: {
+            resources: srcRoot + '/components/common.scss',
+          }
+        }], include: srcRoot },
       { test: /\.(png|jpg|jpeg)$/, use: ['url-loader?limit=8192'], include: srcRoot },  // 当图片大小大于8192时直接引入，小于就转成Base64形式
-      { test: /\.(js|jsx|tsx)$/, use: [{loader: 'babel-loader'}], include: srcRoot }
+      { test: /\.(js|jsx|tsx)$/, use: [{loader: 'babel-loader'}, {loader: 'eslint-loader'}], include: srcRoot }
     ]
   },
   plugins: [
