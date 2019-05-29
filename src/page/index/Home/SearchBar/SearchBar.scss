@@ -1,0 +1,71 @@
+.search-bar {
+  width: 100%;
+  height: pxTurnToRem(40px);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: pxTurnToRem(14px);
+  .bar-location {
+    margin-right: pxTurnToRem(20px);
+    border-radius: pxTurnToRem(13px);
+    background-color: rgba(0,0,0,0.33);
+    height: pxTurnToRem(28px);
+    width: pxTurnToRem(92px);
+  }
+  .location-icon {
+    display: inline-block;
+    width: pxTurnToRem(15px);
+    height: pxTurnToRem(20px);
+    vertical-align: pxTurnToRem(8px);
+    margin-left: pxTurnToRem(6px);
+    background-image: url('./img/locationIcon.png');
+    background-size: cover;
+  }
+  .location-text {
+    position: relative;
+    display: inline-block;
+    font-size: pxTurnToRem(14px);
+    color: #fff;
+    vertical-align: pxTurnToRem(12px);
+    margin-left: pxTurnToRem(8px);
+    margin-right: pxTurnToRem(19px);
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: pxTurnToRem(14px);
+      height: pxTurnToRem(14px);
+      background-image: url('./img/arrowIcon.png');
+      background-size: cover;
+      right: pxTurnToRem(-15px);
+      top: pxTurnToRem(-1px);
+    }
+  }
+  .search-btn {
+    position: relative;
+    width: pxTurnToRem(170px);
+    height: pxTurnToRem(30px);
+    background-color: #fff;
+    border-radius: pxTurnToRem(20px);
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: pxTurnToRem(14px);
+      height: pxTurnToRem(14px);
+      background-image: url('./img/searchIcon.png');
+      background-size: cover;
+      top: pxTurnToRem(7px);
+      left: pxTurnToRem(10px);
+    }
+  }
+  .place-holder {
+    color: #a9a9a9;
+    font-size: pxTurnToRem(14px);
+    height: 100%;
+    line-height: pxTurnToRem(30px);
+    margin-left: pxTurnToRem(28px);
+  }
+
+}

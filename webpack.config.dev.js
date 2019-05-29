@@ -58,7 +58,11 @@ module.exports = {
   // 加载器的配置
   module: {
     rules: [
-      { test: /\.css$/, use: ['style-loader', 'css-loader'], include: srcRoot },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+        // include: srcRoot
+      },
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader', {
           loader: "sass-resources-loader",
           options: {
@@ -66,7 +70,7 @@ module.exports = {
           }
         }], include: srcRoot },
       { test: /\.(png|jpg|jpeg)$/, use: ['url-loader?limit=8192'], include: srcRoot },  // 当图片大小大于8192时直接引入，小于就转成Base64形式
-      { test: /\.(js|jsx|tsx)$/, use: [{loader: 'babel-loader'}, {loader: 'eslint-loader'}], include: srcRoot }
+      { test: /\.(js|jsx|ts|tsx)$/, use: [{loader: 'babel-loader'}, {loader: 'eslint-loader'},], include: srcRoot }
     ]
   },
   plugins: [
