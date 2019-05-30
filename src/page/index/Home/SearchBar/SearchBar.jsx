@@ -1,5 +1,4 @@
 import React from 'react';
-import { SearchBar } from 'antd-mobile';
 import './SearchBar.scss';
 
 /**
@@ -16,11 +15,9 @@ export default class Index extends React.Component {
           <div className="location-icon" />
           <div className="location-text">郑州市</div>
         </div>
-        <SearchBar />
-        {/*<div className="search-btn">*/}
-          {/*<SearchBar />*/}
-          {/*<p className="place-holder">鸡翅</p>*/}
-        {/*</div>*/}
+        <div className="search-btn">
+          <p className="place-holder">鸡翅</p>
+        </div>
       </div>
     )
   }

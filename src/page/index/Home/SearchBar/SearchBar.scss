@@ -11,6 +11,7 @@
     border-radius: pxTurnToRem(13px);
     background-color: rgba(0,0,0,0.33);
     height: pxTurnToRem(28px);
+    line-height: pxTurnToRem(28px);
     width: pxTurnToRem(92px);
   }
   .location-icon {
@@ -39,7 +40,7 @@
       background-image: url('./img/arrowIcon.png');
       background-size: cover;
       right: pxTurnToRem(-15px);
-      top: pxTurnToRem(-1px);
+      top: pxTurnToRem(6px);
     }
   }
   .search-btn {
