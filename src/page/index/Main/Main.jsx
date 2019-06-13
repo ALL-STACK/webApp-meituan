@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import BottomBar from '../BottomBar/index.jsx'
 import Home from '../Home/Home';
 import Category from '../Home/Category/Category';
+import ContentList from '../Home/ContentList'
 
 class Index extends React.Component {
 
@@ -12,6 +13,7 @@ class Index extends React.Component {
         <Home />
         <BottomBar />
         <Category />
+        <ContentList />
       </div>
     )
   }

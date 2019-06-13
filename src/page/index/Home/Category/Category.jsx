@@ -25,18 +25,22 @@ export default class Category extends React.Component {
     }).then(res => {
       const data = res.data.data.primary_filter;
       if(Array.isArray(data) || data.length) {
-        const categoryList = data.map(e => {
-          return {
-            icon: e.url,
-            text: e.name,
-            code: e.code,
-          }
-        });
-        this.setState({categoryList});
+        // const categoryList = data.map(e => {
+        //   return {
+        //     icon: e.url,
+        //     text: e.name,
+        //     code: e.code,
+        //   }
+        // });
+        this.setState({categoryList: data});
       }
     }).catch(() => {
       new Error('请求失败！')
     })
+  };
+
+  goCategory = () => {
+    // window.location.href = './category.html';
   };
 
   render() {
@@ -48,6 +52,12 @@ export default class Category extends React.Component {
         hasLine={false}
         isCarousel={true}
         carouselMaxRow={2}
+        renderItem={(item) => (
+          <div className="category-item" onClick={this.goCategory}>
+            <img className="item-icon" src={item.url} />
+            <p className="item-name">{item.name}</p>
+          </div>
+        )}
       />
     )
   }

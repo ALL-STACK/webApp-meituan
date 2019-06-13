@@ -1,0 +1,14 @@
+.category-item {
+  padding-top: pxTurnToRem(14px);
+  font-size: pxTurnToRem(13px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-icon {
+  width: pxTurnToRem(47px);
+}
+.item-name {
+  margin-top: pxTurnToRem(14px);
+}

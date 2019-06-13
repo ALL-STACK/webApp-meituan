@@ -75,9 +75,10 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|jpeg)$/,
+        // 当图片大小大于8192时直接引入，小于就转成Base64形式
         use: ['url-loader?limit=8192'],
         include: srcRoot
-      },  // 当图片大小大于8192时直接引入，小于就转成Base64形式
+      },
       {
         test: /\.(js|jsx|ts|tsx)$/,
         use: [{loader: 'babel-loader'}, {loader: 'eslint-loader'}],
