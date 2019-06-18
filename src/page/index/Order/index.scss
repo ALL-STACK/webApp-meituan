@@ -1,0 +1,102 @@
+.order-title-empty, .order-title {
+  text-align: center;
+  font-size: pxTurnToRem(20px);
+  padding: pxTurnToRem(10px);
+  margin-bottom: pxTurnToRem(10px);
+  background-color: #ffd161;
+  font-weight: bold;
+  width: 100%;
+}
+.order-title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.item-separator {
+  background-color: #F5F5F9;
+  height: pxTurnToRem(8px);
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.list-title {
+  text-align: center;
+  font-size:pxTurnToRem(16px);
+  margin-top: pxTurnToRem(14px);
+  margin-bottom: pxTurnToRem(5px);
+}
+.order-item {
+  border-radius: pxTurnToRem(10px);
+  border: pxTurnToRem(1px) #e0e0e0 solid;
+  background-color: #fff;
+  .order-item-inner {
+    display: flex;
+    padding-bottom: pxTurnToRem(18px);
+  }
+  .item-img {
+    width: pxTurnToRem(40px);
+    height: pxTurnToRem(40px);
+    margin-top: pxTurnToRem(8px);
+    margin-left: pxTurnToRem(16px);
+    border-radius: 50%;
+  }
+  .item-right {
+    flex: 1;
+    margin-left: pxTurnToRem(15px);
+  }
+  .item-top {
+    height: pxTurnToRem(55px);
+    padding: pxTurnToRem(2px) pxTurnToRem(15px) 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .order-name {
+    font-size: pxTurnToRem(16px);
+    height: pxTurnToRem(16px);
+    font-weight: 600;
+  }
+  .order-state {
+    font-size: pxTurnToRem(14px);
+    color: #999;
+  }
+  .product-item {
+    font-size: pxTurnToRem(14px);
+    color: #666;
+    margin-top: pxTurnToRem(12px);
+  }
+  .p-count {
+    float: right;
+    margin-right: pxTurnToRem(15px);
+  }
+  .p-total-count {
+    float: right;
+    margin-right: pxTurnToRem(15px);
+    font-size: pxTurnToRem(12px);
+  }
+  .total-price {
+    font-size: pxTurnToRem(14px);
+    color: #151515;
+    margin-left: pxTurnToRem(2px);
+    letter-spacing: pxTurnToRem(1px);
+  }
+
+  .evaluation {
+    padding-top: pxTurnToRem(10px);
+    padding-bottom: pxTurnToRem(10px);
+    display: flex;
+    justify-content: flex-end;
+    border-top: pxTurnToRem(1px) #e0e0e0 solid;
+  }
+  .evaluation-btn {
+    width: pxTurnToRem(100px);
+    height: pxTurnToRem(32px);
+    color: #6b450a;
+    background-color: #ffd161;
+    font-size: pxTurnToRem(14px);
+    line-height: pxTurnToRem(32px);
+    text-align: center;
+    margin-right: pxTurnToRem(10px);
+  }
+}

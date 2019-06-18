@@ -1,7 +1,8 @@
 import React from 'react';
 import { ListView } from 'antd-mobile';
+import CONSTANT from '@/constant';
 
-const NUM_ROWS = 20;
+const NUM_ROWS = CONSTANT.LIST_ROWS;
 let pageIndex = 0;
 
 function genData(pIndex = 0) {
@@ -68,8 +69,8 @@ export default class Index extends React.Component {
         {...this.props}
         ref={el => this.lv = el}
         dataSource={this.state.dataSource}
-        renderHeader={() => {return renderHeader || null}}
-        renderFooter={() => {return renderFooter(this.state.isLoading) || null}}
+        renderHeader={renderHeader ? () => renderHeader : null}
+        renderFooter={renderFooter ? () => renderFooter(this.state.isLoading) : null}
         renderRow={renderRow || null}
         renderSeparator={renderSeparator || null}
         pageSize={4}

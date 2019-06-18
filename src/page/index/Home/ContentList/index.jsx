@@ -16,7 +16,6 @@ export default class Index extends React.Component {
     this.fetchContentList();
     this.state = {
       data: [],
-      isLoading: true,
     };
   }
 
@@ -37,7 +36,7 @@ export default class Index extends React.Component {
     })
   };
 
-  renderOthers(data) {
+  renderOthers = data => {
     let array = data.discounts2;
     return array.map((item, index)=>{
       return (
@@ -47,7 +46,7 @@ export default class Index extends React.Component {
         </div>
       )
     });
-  }
+  };
 
   render() {
     const { data } = this.state;
