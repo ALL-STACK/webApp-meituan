@@ -93,6 +93,31 @@ export default class Index extends React.Component {
     });
   }
 
+  renderStar = data => {
+    const score = (data.wm_poi_score || '').toString();
+    const scoreArr = score.split('.');
+    const fullStar = parseInt(scoreArr[0], 10);
+    const halfStar = parseInt(scoreArr[1]) >= 5 ? 1 : 0;
+    const nullStar = 5 - fullStar - halfStar;
+    const domArr = [];
+    if(fullStar) {
+      for(let i = 0; i < fullStar; i++) {
+        domArr.push(<img src={require("./img/fullstar.png")} alt="" className="star"/>)
+      }
+    }
+    if(halfStar) {
+      for(let i = 0; i < halfStar; i++) {
+        domArr.push(<img src={require("./img/halfstar.png")} alt="" className="star"/>)
+      }
+    }
+    if(nullStar) {
+      for(let i = 0; i < nullStar; i++) {
+        domArr.push(<img src={require("./img/nullstar.png")} alt="" className="star"/>)
+      }
+    }
+    return domArr.map((e, index) => (<div key={index}>{e}</div>))
+  };
+
   render() {
     const { data } = this.state;
     let index = data.length - 1;
@@ -119,7 +144,10 @@ export default class Index extends React.Component {
             <div style={{ lineHeight: 1, width: '100%' }}>
               <div className="item-title">{obj.desc || ''}</div>
               <div className="item-desc">
-                <div>月售 {obj.month_sale_num > 999 ? '999+' : obj.month_sale_num}</div>
+                <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+                  <div className="star-container">{this.renderStar(obj)}</div>
+                  <div>月售 {obj.month_sale_num > 999 ? '999+' : obj.month_sale_num}</div>
+                </div>
                 <div>{obj.mt_delivery_time || ''} | {obj.distance || ''}</div>
               </div>
               <div className="item-price">
@@ -155,7 +183,6 @@ export default class Index extends React.Component {
               key={`${sectionID}-${rowID}`}
             />
           )}
-          className="am-list"
           pageSize={4}
           useBodyScroll
           // onScroll={() => { console.log('scroll'); }}

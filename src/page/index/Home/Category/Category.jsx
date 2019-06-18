@@ -24,16 +24,7 @@ export default class Category extends React.Component {
       url: '/json/head.json'
     }).then(res => {
       const data = res.data.data.primary_filter;
-      if(Array.isArray(data) || data.length) {
-        // const categoryList = data.map(e => {
-        //   return {
-        //     icon: e.url,
-        //     text: e.name,
-        //     code: e.code,
-        //   }
-        // });
-        this.setState({categoryList: data});
-      }
+      this.setState({categoryList: data});
     }).catch(() => {
       new Error('请求失败！')
     })

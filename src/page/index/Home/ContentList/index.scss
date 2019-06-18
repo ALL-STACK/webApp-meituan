@@ -12,6 +12,15 @@
     justify-content: space-between;
     margin-top: pxTurnToRem(13px);
     font-size: pxTurnToRem(12px);
+    .star-container {
+      display: flex;
+      justify-content: flex-start;
+      margin-right: pxTurnToRem(5px);
+      .star {
+        width: 10px;
+        height: 10px;
+      }
+    }
   }
   .item-img {
     width: pxTurnToRem(86px);
