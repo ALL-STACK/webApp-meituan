@@ -104,7 +104,7 @@ export default class Index extends React.Component {
       );
     };
     return (
-      <div style={{margin: '0 auto'}}>
+      <div>
         <div className="order-title">我的订单</div>
         <div className="order-title-empty">我的订单</div>
         <WingBlank>
@@ -117,7 +117,7 @@ export default class Index extends React.Component {
               />
             )}
             renderFooter={isLoading => (
-              <div style={{ padding: 30, textAlign: 'center' }}>
+              <div style={{ paddingBottom: 30, textAlign: 'center' }}>
                 {isLoading ? '加载中...' : '加载完成'}
               </div>
             )}

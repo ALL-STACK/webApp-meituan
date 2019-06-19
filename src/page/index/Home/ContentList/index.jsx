@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { WingBlank } from 'antd-mobile';
 import ListView from '@/components/ListView';
 import StarScore from '@/components/StarScore';
 import './index.scss';
@@ -57,7 +58,7 @@ export default class Index extends React.Component {
       }
       const obj = data[index--];
       return (
-        <div key={rowID} style={{ padding: '0 15px' }}>
+        <div key={rowID} style={{ padding: '0 15px' }} className="item-container">
           <div style={{ display: 'flex', padding: '15px 0' }}>
             <div style={{position: 'relative'}}>
               <img className="item-img" src={obj.img} alt="" />
@@ -93,7 +94,8 @@ export default class Index extends React.Component {
     };
     return (
       <div className="list-content">
-        <ListView
+        <WingBlank>
+          <ListView
           renderRow={row}
           renderHeader={
             <h4 className="list-title">
@@ -109,11 +111,13 @@ export default class Index extends React.Component {
             />
           )}
           renderFooter={isLoading => (
-            <div style={{ padding: 30, textAlign: 'center' }}>
+            <div style={{ paddingBottom: 30, textAlign: 'center' }}>
               {isLoading ? '加载中...' : '加载完成'}
             </div>
           )}
+          renderBodyComponent={() => <div />}
         />
+        </WingBlank>
       </div>
     )
   }

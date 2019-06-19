@@ -1,6 +1,10 @@
 .list-content {
   overflow: hidden;
   padding-bottom: pxTurnToRem(50px);
+  .item-container {
+    border-radius: pxTurnToRem(10px);
+    background-color: #fff;
+  }
   .item-title {
     margin-top: pxTurnToRem(3px);
     font-size: pxTurnToRem(16px);
@@ -54,8 +58,6 @@
   .item-separator {
     background-color: #F5F5F9;
     height: pxTurnToRem(8px);
-    border-top: 1px solid #ECECED;
-    border-bottom: 1px solid #ECECED;
   }
   .other-tag {
     width: pxTurnToRem(14px);
