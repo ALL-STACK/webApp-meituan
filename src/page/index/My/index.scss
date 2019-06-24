@@ -1,0 +1,37 @@
+.avatar {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  padding: pxTurnToRem(30px);
+  background-size: cover;
+  .img-container {
+    width: pxTurnToRem(80px);
+    height: pxTurnToRem(80px);
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .img {
+      width: pxTurnToRem(70px);
+      height: pxTurnToRem(70px);
+      border-radius: 50%;
+      background-size: cover;
+    }
+  }
+  .nickname {
+    margin-top: pxTurnToRem(10px);
+    font-size: pxTurnToRem(18px);
+  }
+}
+.list {
+  margin-top: pxTurnToRem(20px);
+}
+.my-list .spe .am-list-extra {
+  flex-basis: initial;
+}
+.service-time {
+  font-size: pxTurnToRem(17px);
+  text-align: center;
+  color: #999;
+}
