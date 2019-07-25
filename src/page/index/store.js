@@ -1,14 +1,20 @@
-import { createStore } from 'redux';
-import mainReducer from './reducers/main';
+import { createStore, applyMiddleware } from 'redux';
+import mainReducer from './reducers/main.js';
+import thunk from 'redux-thunk';
+import { createHashHistory } from 'history'
+import { routerMiddleware } from 'react-router-redux'
+const history = createHashHistory();
+history.replace('home');
+const historyMiddl = routerMiddleware(history);
+const store = createStore(mainReducer, applyMiddleware(thunk,historyMiddl));
 
-const store = createStore(mainReducer);
-
-// 动态更新reducer
-if(module.hot) {
-  module.hot.accept('./reducers/main', () => {
-    const nextRootReducer = require('./reducers/main').default;
-    store.replaceReducer(nextRootReducer);
-  })
+if (module.hot) {
+  module.hot.accept('./reducers/main', ()=>{
+    const nextRootReducer = require('./reducers/main.js').default;
+    store.replaceReducer(nextRootReducer)
+  });
 }
-
-export default store;
+module.exports = {
+  store,
+  history
+};
