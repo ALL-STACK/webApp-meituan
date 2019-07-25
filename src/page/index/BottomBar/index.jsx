@@ -1,10 +1,12 @@
 import React from 'react';
 import './index.scss';
 import { connect } from 'react-redux';
+import { NavLink, withRouter } from 'react-router-dom';
 
 class Index extends React.Component {
 
   handleClick = key => {
+    this.props.history.replace(`${key}`)
     const { dispatch } = this.props;
     dispatch({
       type: 'changeBottomBar',
@@ -16,9 +18,11 @@ class Index extends React.Component {
     const { tabs, activeKey } = this.props;
     return tabs.map(item => {
       return (
-        <div key={item.key} className={item.key + " btn-item " + `${item.key === activeKey ? 'active' : ''}`} onClick={() => this.handleClick(item.key)}>
-          <div className='tab-icon' />
-          <div className='btn-name'>{item.name}</div>
+        <div key={item.key} className={item.key + " btn-item " + `${item.key === activeKey ? 'active' : ''}`}>
+          <NavLink replace to={`/${item.key}`} activeClassName='active' onClick={() => this.handleClick(item.key)}>
+            <div className='tab-icon' />
+            <div className='btn-name'>{item.name}</div>
+          </NavLink>
         </div>
       )
     })
@@ -32,9 +36,11 @@ class Index extends React.Component {
 
 }
 
-export default connect(
-  state => ({
-    tabs: state.tabReducer.tabs,
-    activeKey: state.tabReducer.activeKey
-  })
-)(Index)
+export default withRouter(
+  connect(
+    state => ({
+      tabs: state.tabReducer.tabs,
+      activeKey: state.tabReducer.activeKey
+    })
+  )(Index)
+)

@@ -15,7 +15,9 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    color: #999;
+    .btn-name {
+      color: #999;
+    }
     .tab-icon {
       width: pxTurnToRem(25px);
       height: pxTurnToRem(25px);

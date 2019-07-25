@@ -4,8 +4,13 @@ import thunk from 'redux-thunk';
 import { createHashHistory } from 'history'
 import { routerMiddleware } from 'react-router-redux'
 const history = createHashHistory();
+
+// 创建初始化tab
 history.replace('home');
+
+// 创建history的middleware
 const historyMiddl = routerMiddleware(history);
+
 const store = createStore(mainReducer, applyMiddleware(thunk,historyMiddl));
 
 if (module.hot) {

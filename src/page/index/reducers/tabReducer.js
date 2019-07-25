@@ -7,7 +7,7 @@ const initState = {
     {name: '订单', key: TABKEY.order},
     {name: '我的', key: TABKEY.my},
   ],
-  activeKey: TABKEY.order,
+  activeKey: TABKEY.home,
 };
 
 function changeBottomBar(state, { payload }) {
