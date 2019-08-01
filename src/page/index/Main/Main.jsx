@@ -8,21 +8,6 @@ import ContentList from '../Home/ContentList';
 import Order from '../Order';
 import My from '../My';
 
-// const homePage = [
-//   <Home />,
-//   <BottomBar />,
-//   <Category />,
-//   <ContentList />,
-// ];
-// const orderPage = [
-//   <Order />,
-//   <BottomBar />
-// ];
-// const myPage = [
-//   <My />,
-//   <BottomBar />
-// ];
-
 class Index extends React.Component {
 
   render() {

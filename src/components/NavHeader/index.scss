@@ -1,0 +1,22 @@
+.head_wrapper {
+  height: pxTurnToRem(64px);
+  border-bottom: 1px solid #b2b2b2;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+  background-color: #fff;
+  .img_back {
+    width: pxTurnToRem(27px);
+    height: pxTurnToRem(27px);
+    position: absolute;
+    top: pxTurnToRem(23px);
+    left: pxTurnToRem(10px);
+  }
+  .head_title {
+    font-size: pxTurnToRem(17px);
+    color: #2f2f2f;
+    text-align: center;
+    line-height: pxTurnToRem(73px);
+  }
+}

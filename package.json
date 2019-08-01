@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js",
     "build": "./node_modules/.bin/webpack --config webpack.config.build.js --progress",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js"
   },
   "author": "",
   "license": "ISC",
