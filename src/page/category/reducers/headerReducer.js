@@ -21,6 +21,7 @@ tabs[TABKEY.filter] = {
 const initState = {
   tabs,
   activeKey: '',
+  headerData: {}
 };
 
 export default (state = initState, action) => {
@@ -29,6 +30,26 @@ export default (state = initState, action) => {
       return {
         ...state,
         activeKey: action.tabKey !== state.activeKey ? TABKEY[action.tabKey] : ''
+      };
+    case 'saveFilterData':
+      return {
+        ...state,
+        headerData: action.payload,
+      };
+    case 'setActiveTag':
+      return {
+        ...state,
+        tabs: {
+          ...state.tabs,
+          [action.payload.activeKey]: {
+            ...state.tabs[action.payload.activeKey],
+            text: action.payload.name,
+            obj: {
+              lv1: action.payload.lv1,
+              lv2: action.payload.lv2,
+            }
+          }
+        }
       }
     default: return state;
   }
