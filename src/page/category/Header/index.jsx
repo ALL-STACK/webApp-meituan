@@ -32,7 +32,7 @@ class Index extends React.Component {
   }
 
   handleTagClick = (item, lv1, lv2) => {
-    const { dispatch } = this.props;
+    const { dispatch, handleFilter } = this.props;
     dispatch({
       type: 'setActiveTag',
       payload: {
@@ -41,7 +41,12 @@ class Index extends React.Component {
         lv1, 
         lv2
       }
-    })
+    });
+    dispatch({
+      type: 'changeHeaderTabKey',
+      tabKey: '',
+    });
+    handleFilter && handleFilter(item.name);
   }
 
   isActiveTag = (lv1, lv2) => {

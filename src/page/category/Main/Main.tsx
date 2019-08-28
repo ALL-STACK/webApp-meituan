@@ -1,17 +1,35 @@
 import React from 'react';
-import Header from '../Header'
+import Header from '../Header';
+import { connect } from 'react-redux';
 import NavHeader from '@/components/NavHeader';
-import Body from '../Body';
+import ContentList from '../ContentList/index.tsx';
 
-export default class Index extends React.Component {
+class Index extends React.Component {
+
+  state = {
+    name: '',
+  };
+
+  handleFilter = (name: string) => {
+    if(name !== this.state.name) {
+      this.setState({name});
+    }
+  }
 
   render() {
+    const { activeKey } = this.props;
     return (
-      <React.Fragment>
+      <div style={activeKey ? {overflow: 'hidden', height: '100%'} : {}}>
         <NavHeader title='分类' />
-        <Header />
-        <Body />
-      </React.Fragment>
+        <Header handleFilter={this.handleFilter} />
+        <ContentList filterData={this.state.name} />
+      </div>
     )
   }
 }
+
+export default connect(
+  state => ({
+    activeKey: state.headerReducer.activeKey,
+  })
+)(Index)

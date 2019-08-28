@@ -1,16 +1,18 @@
 import React from 'react';
 import axios from 'axios';
 import { WingBlank } from 'antd-mobile';
+import { connect } from 'react-redux';
 import ListView from '@/components/ListView';
 import StarScore from '@/components/StarScore';
 import './index.scss';
+import { IProps } from './interface.ts';
 
 /**
  * @constructor <ContentList />
- * @description 附近商家列表
+ * @description 商家列表
  */
 
-export default class Index extends React.Component {
+class Index extends React.Component<IProps> {
 
   constructor(props) {
     super(props);
@@ -18,6 +20,25 @@ export default class Index extends React.Component {
     this.state = {
       data: [],
     };
+  }
+
+  UNSAFE_componentWillReceiveProps(newProps) {
+    if(this.props.filterData !== newProps.filterData) {
+      axios({
+        method: 'get',
+        url: '/json/listparams.json'
+      }).then((res) => {
+        const data = res.data.data.poilist;
+        const newData = data.map(e => {
+          return {
+            ...e,
+            img: e.pic_url,
+            desc: e.name,
+          }
+        });
+        this.setState({data: newData});
+      })
+    }
   }
 
   fetchContentList = () => {
@@ -49,7 +70,16 @@ export default class Index extends React.Component {
     });
   };
 
+  hideMask = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'changeHeaderTabKey',
+      tabKey: '',
+    })
+  }
+
   render() {
+    const { activeKey } = this.props;
     const { data } = this.state;
     let index = data.length - 1;
     const row = (rowData, sectionID, rowID) => {
@@ -94,16 +124,10 @@ export default class Index extends React.Component {
     };
     return (
       <div className="list-content">
+        <div className={`mask${activeKey ? ' active' : ''}`} onClick={this.hideMask} />
         <WingBlank>
           <ListView
             renderRow={row}
-            renderHeader={
-              <h4 className="list-title">
-                <span className="title-line" />
-                <span>附近商家</span>
-                <span className="title-line" />
-              </h4>
-            }
             renderSeparator={(sectionID, rowID) => (
               <div
                 className="item-separator"
@@ -122,3 +146,9 @@ export default class Index extends React.Component {
     )
   }
 }
+
+export default connect(
+  state => ({
+    activeKey: state.headerReducer.activeKey,
+  })
+)(Index)
