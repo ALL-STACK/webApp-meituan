@@ -13,7 +13,7 @@ export default class Index extends React.Component {
     return (
       <div className="header">
         <SearchBar />
-        <img className="banner-img" src="//xs01.meituan.net/waimai_i/img/bannertemp.e8a6fa63.jpg"/>
+        <img className="banner-img" src={require('@/static/img/meituan.jpg')} />
       </div>
     )
   }

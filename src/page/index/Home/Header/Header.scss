@@ -3,5 +3,6 @@
   .banner-img {
     width: 100%;
     height: pxTurnToRem(178px);
+    object-fit: cover;
   }
 }
