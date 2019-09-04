@@ -1,0 +1,20 @@
+.list-wrapper {
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  .cate-list {
+    width: 25%;
+    .cate-item {
+      padding: 10px;
+      word-wrap: break-word; 
+      word-break: break-all;
+      &.active {
+        background-color: #fff;
+      }
+    }
+  }
+  .menu-list {
+    width: 75%;
+    background-color: #fff;
+  }
+}

@@ -18,7 +18,7 @@ class Main extends React.Component {
         }
     }
     componentDidMount(){
-        this.commentInput.addEventListener('compositionstart', ()=>{
+        this.commentInput.addEventListener('compositionstart', ()=>{  
             this.chineseInputing = true;
         });
         this.commentInput.addEventListener('compositionend', (e)=>{

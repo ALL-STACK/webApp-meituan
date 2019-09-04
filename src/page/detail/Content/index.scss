@@ -1,0 +1,17 @@
+.content-wrapper {
+  .empty {
+    height: pxTurnToRem(64px);
+  }
+  :global {
+    .am-tabs-tab-bar-wrap {
+      position: fixed;
+      top: pxTurnToRem(65px);
+      left: 0;
+      width: 100%;
+      z-index: 99;
+    }
+    .am-tabs-content-wrap {
+      margin-top: 45px;
+    }
+  }
+}

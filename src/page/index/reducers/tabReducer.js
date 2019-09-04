@@ -1,6 +1,6 @@
 import CONFIG from '../config.js';
 
-const { TABKEY } = CONFIG;
+const { TABKEY } = CONFIG; 
 const initState = {
   tabs: [
     {name: '首页', key: TABKEY.home},
