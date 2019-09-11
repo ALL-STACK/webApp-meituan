@@ -1,6 +1,8 @@
 import React from 'react';
 import { WingBlank, WhiteSpace } from 'antd-mobile';
+import axios from 'axios';
 import { connect } from 'react-redux';
+import ProductList from './ProductList';
 import './index.scss';
 
 class Index extends React.Component {
@@ -8,19 +10,27 @@ class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      categoryList: ['kkkkkkkkkkkk',2,3,4,5,6,7,8,9,1,2,3,2,3,2,1,1,2],
+      categoryList: [],
       menuList: [],
     };
+    this.queryListData();
   }
 
-  componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'changeCateActive',
-      payload: {
-        activeCate: {index: 0, name: this.state.categoryList[0]}
-      }
-    })
+  queryListData = async () => {
+    let { data: { data }} = await axios({
+      method: 'get',
+      url: './json/food.json',
+    });
+    this.setState({categoryList: data.food_spu_tags}, () => {
+      const { dispatch } = this.props;
+      dispatch({
+        type: 'changeCateActive',
+        payload: {
+          activeCate: {index: 0, name: this.state.categoryList[0].name}
+        }
+      })
+    });
+    console.log(data.food_spu_tags)
   }
 
   handleCateClick = (item: any) => {
@@ -39,15 +49,16 @@ class Index extends React.Component {
       <div 
         className={`cate-item${activeCate.index === index ? ' active' : ''}`}
         key={index}
-        onClick={() => this.handleCateClick({index, name: item})}
+        onClick={() => this.handleCateClick({index, name: item.name})}
        >
-        <span>{item}</span>
+        <span>{item.name}</span>
       </div>
     ))
   }
 
   render() {
     const { activeCate } = this.props;
+    const { categoryList } = this.state;
     return (
       <div className="list-wrapper">
         <div className="cate-list">
@@ -56,7 +67,8 @@ class Index extends React.Component {
         <div className="menu-list">
           <WhiteSpace />
           <WingBlank>
-            <div>{activeCate.name || ''}</div>
+            <div className="title">{activeCate.name || ''}</div>
+            <ProductList dataSource={Array.isArray(categoryList) && categoryList.length ? categoryList[activeCate.index].spus : []} />
           </WingBlank>
         </div>
       </div>

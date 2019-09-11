@@ -2,10 +2,14 @@
   display: flex;
   // align-items: center;
   justify-content: center;
+  position: relative;
   .cate-list {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
     width: 25%;
     .cate-item {
-      padding: 10px;
+      padding: pxTurnToRem(20px) 0 pxTurnToRem(20px) pxTurnToRem(10px);
       word-wrap: break-word; 
       word-break: break-all;
       &.active {
@@ -16,5 +20,9 @@
   .menu-list {
     width: 75%;
     background-color: #fff;
+    .title {
+      border-left: 2px #ffc85b solid;
+      padding: 0 5px;
+    }
   }
 }

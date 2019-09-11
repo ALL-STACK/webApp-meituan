@@ -29,6 +29,7 @@ export default class Index extends React.Component {
     this.state = {
       dataSource,
       isLoading: true,
+      hasMore: true,
     };
   }
 
@@ -47,11 +48,13 @@ export default class Index extends React.Component {
   }
 
   onEndReached = () => {
+    const { limitPageIndex } = this.props;
     // load new data
     // hasMore: from backend data, indicates whether it is the last page, here is false
-    if (this.state.isLoading && !this.state.hasMore) return;
+    if (!this.state.isLoading && !this.state.hasMore) return;
     // console.log('reach end', event);
-    this.setState({ isLoading: true });
+    const limit = limitPageIndex ? limitPageIndex : 3;
+    this.setState({ isLoading: true, hasMore: pageIndex < limit });
     setTimeout(() => {
       this.rData = { ...this.rData, ...genData(++pageIndex) };
       this.setState({
@@ -60,7 +63,6 @@ export default class Index extends React.Component {
       });
     }, 1000);
   };
-
 
   render() {
     const { renderRow, renderHeader, renderSeparator, renderFooter } = this.props;
