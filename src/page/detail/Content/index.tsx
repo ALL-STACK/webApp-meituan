@@ -15,8 +15,8 @@ export default class Index extends React.Component {
   render() {
     return (
       <div className="content-wrapper">
-        <div className="empty" />
         <Tabs
+          className='tab'
           tabs={tabs}
           initialPage={'1'}
           tabBarUnderlineStyle={{borderColor: '#ffc85b'}}

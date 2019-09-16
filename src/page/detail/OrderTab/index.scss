@@ -1,13 +1,11 @@
 .list-wrapper {
-  display: flex;
-  // align-items: center;
-  justify-content: center;
-  position: relative;
+  height: 100%;
+  overflow: scroll;
   .cate-list {
-    // position: absolute;
-    // top: 0;
-    // left: 0;
+    float: left;
     width: 25%;
+    height: 100%;
+    overflow: scroll;
     .cate-item {
       padding: pxTurnToRem(20px) 0 pxTurnToRem(20px) pxTurnToRem(10px);
       word-wrap: break-word; 
@@ -18,7 +16,10 @@
     }
   }
   .menu-list {
+    float: right;
     width: 75%;
+    height: 100%;
+    overflow: scroll;
     background-color: #fff;
     .title {
       border-left: 2px #ffc85b solid;

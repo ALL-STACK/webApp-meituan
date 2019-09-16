@@ -30,7 +30,6 @@ class Index extends React.Component {
         }
       })
     });
-    console.log(data.food_spu_tags)
   }
 
   handleCateClick = (item: any) => {
