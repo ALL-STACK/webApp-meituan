@@ -7,6 +7,7 @@
     height: 100%;
     overflow: scroll;
     padding-top: 45px;
+    padding-bottom: pxTurnToRem(60px); 
     .cate-item {
       font-size: pxTurnToRem(16px);
       padding: pxTurnToRem(20px) 0 pxTurnToRem(20px) pxTurnToRem(10px);

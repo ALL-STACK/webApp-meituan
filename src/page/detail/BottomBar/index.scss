@@ -1,7 +1,55 @@
 .bar-wrapper {
   position: fixed;
-  bottom: 0;
+  bottom: pxTurnToRem(10px);
   left: 0;
   width: 100%;
-  border: thin black solid;
+  .cart-img {
+    width: 90%;
+    margin: 0 auto;
+    img {
+      position: absolute;
+      top: pxTurnToRem(-15px);
+      left: pxTurnToRem(40px);
+      width: pxTurnToRem(60px);
+      height: pxTurnToRem(60px);
+    }
+  }
+  .bar-content {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: pxTurnToRem(30px);
+    overflow: hidden;
+    .order-desc {
+      background-color: rgba(0,0,0,.7);
+      display: flex;
+      justify-content: flex-start;
+      width: 77%;
+      color: #fff;
+      .desc {
+        padding: pxTurnToRem(10px) 0 0 pxTurnToRem(85px);
+        .currency {
+          font-size: pxTurnToRem(18px);
+        }
+        .price {
+          font-size: pxTurnToRem(20px);
+        }
+        .remark {
+          padding-top: pxTurnToRem(5px);
+          font-size: pxTurnToRem(13px);
+          color: #b2b0b0;
+        }
+      }
+    }
+    .buy {
+      width: 23%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: pxTurnToRem(17px);
+      font-weight: 550;
+      padding: pxTurnToRem(20px) 0;
+    }
+  }
 }
