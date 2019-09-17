@@ -15,7 +15,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      padding-top: 100px;
+      padding-top: pxTurnToRem(64px);
     }
   }
 }

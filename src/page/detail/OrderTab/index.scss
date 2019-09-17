@@ -6,7 +6,9 @@
     width: 25%;
     height: 100%;
     overflow: scroll;
+    padding-top: 45px;
     .cate-item {
+      font-size: pxTurnToRem(16px);
       padding: pxTurnToRem(20px) 0 pxTurnToRem(20px) pxTurnToRem(10px);
       word-wrap: break-word; 
       word-break: break-all;
@@ -21,6 +23,7 @@
     height: 100%;
     overflow: scroll;
     background-color: #fff;
+    padding-top: 45px;
     .title {
       border-left: 2px #ffc85b solid;
       padding: 0 5px;
