@@ -31,6 +31,10 @@ class Index extends React.Component<IProps> {
     })
   }
 
+  addToCart = item => {
+    console.log(item.id);
+  }
+
   render() {
     const { dataSource } = this.props;
     const data = dataSource;
@@ -53,7 +57,7 @@ class Index extends React.Component<IProps> {
               <div className="praise">{obj.praise_content || ''}</div>
               <div className="operate">
                 <div className="price"><span className="currency">￥</span><span className="number">{obj.min_price || 0}</span><span className="unit"> /{obj.unit || ''}</span></div>
-                <div className="plus"><img src={require('@/static/img/plus.png')} alt=""/></div>
+                <div className="plus" onClick={() => this.addToCart(obj)}><img src={require('@/static/img/plus.png')} alt="" /></div>
               </div>
             </div>
           </div>
