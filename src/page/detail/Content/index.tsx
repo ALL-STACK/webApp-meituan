@@ -18,7 +18,7 @@ export default class Index extends React.Component {
         <Tabs
           className='tab'
           tabs={tabs}
-          initialPage={'1'}
+          initialPage={'2'}
           tabBarUnderlineStyle={{borderColor: '#ffc85b'}}
           tabBarActiveTextColor="#333"
           renderTab={tab => <span>{tab.title}</span>}
