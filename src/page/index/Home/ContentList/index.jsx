@@ -77,11 +77,11 @@ export default class Index extends React.Component {
               <div className="item-desc">
                 <div style={{display: 'flex', justifyContent: 'flex-start'}}>
                   <StarScore num={obj.wm_poi_score}/>
-                  <div>月售 {obj.month_sale_num > 999 ? '999+' : obj.month_sale_num}</div>
+                  <div className="month-sale">月售 {obj.month_sale_num > 999 ? '999+' : obj.month_sale_num}</div>
                 </div>
-                <div>{obj.mt_delivery_time || ''} | {obj.distance || ''}</div>
+                <div className="distance">{obj.mt_delivery_time || ''} | {obj.distance || ''}</div>
               </div>
-              <div className="item-price">
+              <div className="item-price"> 
                 {obj.min_price_tip || ''}
               </div>
               <div>

@@ -3,7 +3,8 @@ const initState = {
   activeCate: {
     index: 0,
     name: '',
-  }
+  },
+  orderedProd: {},
 };
 
 export default (state = initState, action) => {
@@ -12,6 +13,11 @@ export default (state = initState, action) => {
       return {
         ...state,
         activeCate: action.payload.activeCate
+      }
+    case 'changeOrderedProd':
+      console.log('改变')
+      return {
+        ...state,
       }
     default: return state;
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import { WingBlank, WhiteSpace } from 'antd-mobile';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import BottomBar from '../BottomBar';
 import ProductList from './ProductList';
 import './index.scss';
 
@@ -70,6 +71,7 @@ class Index extends React.Component {
             <ProductList dataSource={Array.isArray(categoryList) && categoryList.length ? categoryList[activeCate.index].spus : []} />
           </WingBlank>
         </div>
+        <BottomBar />
       </div>
     )
   }

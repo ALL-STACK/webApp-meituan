@@ -1,11 +1,11 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import ListView from '@/components/ListView';
 import './index.scss';
 import { IProps } from './interface.ts';
 
 /**
- * @constructor <ContentList />
+ * @constructor <ProductList />
  * @description 商品列表
  */
 
@@ -23,16 +23,12 @@ class Index extends React.Component<IProps> {
     });
   };
 
-  hideMask = () => {
+  addToCart = (item: any) => {
     const { dispatch } = this.props;
     dispatch({
-      type: 'changeHeaderTabKey',
-      tabKey: '',
+      type: 'changeOrderedProd',
+      payload: { item }
     })
-  }
-
-  addToCart = item => {
-    console.log(item.id);
   }
 
   render() {
@@ -86,4 +82,8 @@ class Index extends React.Component<IProps> {
   }
 }
 
-export default Index;
+export default connect(
+  state => ({
+    activeCate: state.tabReducer.activeCate,
+  })
+)(Index)
