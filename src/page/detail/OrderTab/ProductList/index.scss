@@ -47,10 +47,17 @@
             font-size: pxTurnToRem(12px);
           }
         }
-        .plus img {
-          width: pxTurnToRem(16px);
-          height: pxTurnToRem(16px);
-          object-fit: cover;
+        .plus {
+          display: flex;
+          align-items: center;
+          & img {
+            width: pxTurnToRem(16px);
+            height: pxTurnToRem(16px);
+            object-fit: cover;
+          }
+          & span {
+            font-size: pxTurnToRem(16px);
+          }
         }
       }
       .item-title {

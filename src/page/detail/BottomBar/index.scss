@@ -13,6 +13,22 @@
       width: pxTurnToRem(60px);
       height: pxTurnToRem(60px);
     }
+    & .prodNum {
+      position: absolute;
+      top: pxTurnToRem(-15px);
+      left: pxTurnToRem(30px);
+      margin-left: pxTurnToRem(50px);
+      border-radius: 50%;
+      background-color: red;
+      color: white;
+      width: pxTurnToRem(20px);
+      height: pxTurnToRem(20px);
+      font-size: pxTurnToRem(12px);
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
   .bar-content {
     display: flex;
