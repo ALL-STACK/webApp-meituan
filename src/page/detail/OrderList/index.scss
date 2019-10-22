@@ -6,6 +6,7 @@
   padding-bottom: pxTurnToRem(70px);
   background-color: white;
   border-radius: pxTurnToRem(10px) pxTurnToRem(10px) 0 0;
+  z-index: 100;
   .discountNum {
     background: #f5cd7f57;
     text-align: center;

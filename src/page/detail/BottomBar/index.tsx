@@ -11,6 +11,9 @@ class Index extends React.PureComponent {
     dispatch({
       type: 'showOrderList'
     })
+    dispatch({
+      type: 'showMask'
+    })
   }
 
   getListNum = () => {
@@ -18,6 +21,15 @@ class Index extends React.PureComponent {
     let num = 0;
     Object.values(orderedProd).forEach((e: any) => {
       num = num + e.orderedNum
+    })
+    return num;
+  }
+
+  getTotalPrice = () => {
+    const { orderedProd } = this.props;
+    let num = 0;
+    Object.values(orderedProd).forEach((e: any) => {
+      num = num + e.min_price * e.orderedNum;
     })
     return num;
   }
@@ -36,7 +48,7 @@ class Index extends React.PureComponent {
         <div className="bar-content">
           <div className="order-desc">
             <div className="desc">
-              <p><span className="currency">￥</span><span className="price">0</span></p>
+              <p><span className="currency">￥</span><span className="price">{this.getTotalPrice()}</span></p>
               <p className="remark">另需配送费 ￥9</p>
             </div>
           </div>

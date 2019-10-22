@@ -1,5 +1,4 @@
 import React from 'react';
-// import { WingBlank } from 'antd-mobile';
 import { connect } from 'react-redux';
 import './index.scss';
 
@@ -17,18 +16,12 @@ class Index extends React.Component {
     const { dispatch } = this.props;
     dispatch({
       type: 'minusOrderedProd',
-      payload: { item }
+      payload: { item, isControlVisible: true }
     })
   }
 
-  getRealListLength = () => {
-    const { orderedProd } = this.props;
-    console.log(Object.values(orderedProd).filter((e: any) => e.orderedNum))
-    return Object.values(orderedProd).filter((e: any) => e.orderedNum).length
-  }
-
   render() {
-    const { orderedProd, showOrderList } = this.props;
+    const { showOrderList, orderedProd } = this.props;
     return showOrderList ? (
       <div className="orderWrapper">
         <div className="discountNum">
@@ -36,9 +29,9 @@ class Index extends React.Component {
         </div>
         <div className="orderList">
         {
-          Object.values(orderedProd).map((obj: any, index) => {
+          Object.values(orderedProd).map((obj: any, index: number) => {
             return obj.orderedNum ? (
-              <div key={obj.id} className="item-container" style={index < this.getRealListLength() ? {borderBottom: 'thin #00000014 solid'} : {}}>
+              <div key={obj.id} className="item-container" style={index < Object.values(orderedProd).length - 1 ? {borderBottom: 'thin #00000014 solid'} : {}}>
                 <div style={{ display: 'flex', padding: '15px 0' }}>
                   <div>
                     <img className="item-img" src={obj.picture} alt="" />

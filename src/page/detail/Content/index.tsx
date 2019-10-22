@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tabs } from 'antd-mobile';
+import { connect } from 'react-redux';
 import './index.scss';
 import OrderTab from '../OrderTab';
 import EvaluateTab from '../EvaluateTab';
@@ -11,7 +12,16 @@ const tabs = [
   { title: '商家', sub: '3' },
 ];
 
-export default class Index extends React.Component {
+class Index extends React.Component {
+
+  handleTabChange = (tab: any) => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'changeCurTab',
+      payload: { curTab: tab.sub }
+    })
+  }
+
   render() {
     return (
       <div className="content-wrapper">
@@ -22,6 +32,7 @@ export default class Index extends React.Component {
           tabBarUnderlineStyle={{borderColor: '#ffc85b'}}
           tabBarActiveTextColor="#333"
           renderTab={tab => <span>{tab.title}</span>}
+          onChange={this.handleTabChange}
         >
           <OrderTab />
           <EvaluateTab />
@@ -31,3 +42,9 @@ export default class Index extends React.Component {
     )
   }
 }
+
+export default connect(
+  state => ({
+    curTab: state.tabReducer.curTab,
+  })
+)(Index)

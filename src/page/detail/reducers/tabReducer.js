@@ -6,10 +6,24 @@ const initState = {
   },
   orderedProd: {},
   showOrderList: false,
+  showMask: false,
+  curTab: '1',
 };
 
 export default (state = initState, action) => {
   switch (action.type) {
+    case 'changeCurTab': {
+      return {
+        ...state,
+        curTab: action.payload.curTab
+      }
+    }
+    case 'showMask': {
+      return {
+        ...state,
+        showMask: !state.showMask
+      }
+    }
     case 'showOrderList': {
       return {
         ...state,
@@ -40,16 +54,25 @@ export default (state = initState, action) => {
       }
     }
     case 'minusOrderedProd': {
-      const { payload: { item, item: { id } }} = action;
+      const { payload: { item, item: { id }, isControlVisible }} = action;
       const { orderedProd } = state;
-      return {
-        ...state,
-        orderedProd: {
-          ...orderedProd,
+      const params = JSON.parse(JSON.stringify(orderedProd));
+      delete params[id];
+      const newOrderedProd = {
+        ...params,
+        ...orderedProd && orderedProd[id].orderedNum > 1 && { 
           [`${id}`]: {
             ...item,
             orderedNum: --orderedProd[id].orderedNum
           }
+        },
+      };
+      return {
+        ...state,
+        orderedProd: newOrderedProd,
+        ...isControlVisible && {
+          showOrderList: !!Object.values(newOrderedProd).length,
+          showMask: !!Object.values(newOrderedProd).length,
         }
       }
     }
