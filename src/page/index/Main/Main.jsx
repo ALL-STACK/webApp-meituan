@@ -1,12 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Loadable from 'react-loadable';
 import BottomBar from '../BottomBar/index.jsx';
 import { Route, withRouter } from 'react-router-dom';
 import Home from '../Home/Home';
 import Category from '../Home/Category/Category';
 import ContentList from '../Home/ContentList';
 import Order from '../Order';
-import My from '../My';
+import Loading from './Loading';
+// import My from '../My';
+
+const My = Loadable({
+  loader: () => import(/* webpackChunkName: "my" */'../My'),
+  loading: Loading,
+});
 
 class Index extends React.Component {
 
@@ -26,22 +33,8 @@ class Index extends React.Component {
             )
           }
         />
-        <Route 
-          path='/order' 
-          component={
-            () => (
-              <Order />
-            )
-          }
-        />
-        <Route 
-          path='/my' 
-          component={
-            () => (
-              <My />
-            )
-          }
-        />
+        <Route path='/order' component={() => (<Order />)} />
+        <Route path='/my' component={My}/>
         <BottomBar />
       </div>
     )
