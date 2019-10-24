@@ -78,6 +78,10 @@ class Index extends React.Component<IProps> {
     })
   }
 
+  goDetail = (item: any) => {
+    window.location.href = './detail.html?id=' + item.id;
+  }
+
   render() {
     const { activeKey } = this.props;
     const { data } = this.state;
@@ -88,7 +92,7 @@ class Index extends React.Component<IProps> {
       }
       const obj = data[index--];
       return (
-        <div key={rowID} style={{ padding: '0 15px' }} className="item-container">
+        <div key={rowID} style={{ padding: '0 15px' }} className="item-container" onClick={() => this.goDetail(obj)}>
           <div style={{ display: 'flex', padding: '15px 0' }}>
             <div style={{position: 'relative'}}>
               <img className="item-img" src={obj.img} alt="" />

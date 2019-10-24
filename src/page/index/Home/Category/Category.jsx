@@ -31,7 +31,7 @@ export default class Category extends React.Component {
   };
 
   goCategory = () => {
-    // window.location.href = './category.html';
+    window.location.href = './category.html';
   };
 
   render() {

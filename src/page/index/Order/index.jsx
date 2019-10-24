@@ -73,9 +73,9 @@ export default class Index extends React.Component {
     })
   };
 
-  goDetail = () => {
-    // window.location.href = './detail.html';
-  };
+  goDetail = (item) => {
+    window.location.href = './detail.html?id=' + item.wm_order_id;
+  }
 
   render() {
     const { data } = this.state;
@@ -87,7 +87,7 @@ export default class Index extends React.Component {
       const obj = data[index--];
       return (
         <div className="order-item" key={rowID}>
-          <div className="order-item-inner">
+          <div className="order-item-inner" onClick={() => this.goDetail(obj)}>
             <img className="item-img" src={obj.poi_pic}/>
             <div className="item-right">
               <div className="item-top" onClick={this.goDetail}>

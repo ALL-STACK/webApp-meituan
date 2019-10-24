@@ -6,12 +6,17 @@ import { Route, withRouter } from 'react-router-dom';
 import Home from '../Home/Home';
 import Category from '../Home/Category/Category';
 import ContentList from '../Home/ContentList';
-import Order from '../Order';
 import Loading from './Loading';
-// import My from '../My';
 
+// 懒加载
 const My = Loadable({
   loader: () => import(/* webpackChunkName: "my" */'../My'),
+  loading: Loading,
+});
+
+// 懒加载
+const Order = Loadable({
+  loader: () => import(/* webpackChunkName: "order" */'../Order'),
   loading: Loading,
 });
 
@@ -33,7 +38,7 @@ class Index extends React.Component {
             )
           }
         />
-        <Route path='/order' component={() => (<Order />)} />
+        <Route path='/order' component={Order} />
         <Route path='/my' component={My}/>
         <BottomBar />
       </div>
