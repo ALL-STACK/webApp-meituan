@@ -55,6 +55,9 @@ export default class Index extends React.Component {
         <List className="list">
           <Item><div style={{textAlign: 'center', color: 'rgb(255,200,76)'}}>客服电话：800-820-08820</div></Item>
         </List>
+        <List className="list">
+          <Item><div style={{textAlign: 'center', color: 'rgb(255,200,76)'}}><input type="file" accept="image/*" capture="camera"/></div></Item>
+        </List>
         <div className="service-time list">服务时间：9:00 - 23:00</div>
       </div>
     )
